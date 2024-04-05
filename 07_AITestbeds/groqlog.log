@@ -1,0 +1,37 @@
+[93m
+Warning: [0m[0mbuild_model() discovered a cached build of bert_tiny, but decided to rebuild for the following reasons: [0m
+[0m         [0m[0m[0m
+[0m         [0m[0m- Input shape of model "bert_tiny" changed from {'attention_mask': (1, 256), 'input_ids': (1, 256)} to {'attention_mask': (1, 128), 'input_ids': (1, 128)} since the last time it was built. [0m
+[0m         [0m[0m[0m
+[0m         [0m[0mbuild_model() will now rebuild your model to ensure correctness. You can change this policy by setting the build_model(rebuild=...) argument.[0m
+
+
+
+[1mBuilding "bert_tiny"[0m
+[0m      Exporting PyTorch to ONNX   [0m
+[0m      Optimizing ONNX file   [0m
+[0m      Checking for Op support   [0m
+[0m      Converting to FP16   [0m
+[0m      Compiling model   [0m
+[0m      Assembling model   [0m
+[1A[1A[1A[1A[1A[1A[92m    ✓ [0m[0mExporting PyTorch to ONNX   [0m
+[92m    ✓ [0m[0mOptimizing ONNX file   [0m
+      Checking for Op support         Checking for Op support.        Checking for Op support..       Checking for Op support...[92m    ✓ [0m[0mChecking for Op support   [0m
+[92m    ✓ [0m[0mConverting to FP16   [0m
+      Compiling model         Compiling model.        Compiling model..       Compiling model...      Compiling model         Compiling model.        Compiling model..       Compiling model...      Compiling model         Compiling model.        Compiling model..       Compiling model...      Compiling model         Compiling model.        Compiling model.. [92m    ✓ [0m[0mCompiling model   [0m
+      Assembling model         Assembling model.        Assembling model..       Assembling model...      Assembling model         Assembling model.        Assembling model..       Assembling model...      Assembling model         Assembling model.        Assembling model..       Assembling model...      Assembling model         Assembling model.        Assembling model..       Assembling model...      Assembling model         Assembling model.        Assembling model..       Assembling model...      Assembling model         Assembling model.        Assembling model..       Assembling model...      Assembling model         Assembling model.        Assembling model.. [92m    ✓ [0m[0mAssembling model   [0m
+[92m
+Woohoo! [0m[0mSaved to [0m[1m~/.cache/groqflow/bert_tiny[0m[0m[0m
+Preprocessing data.
+[96m
+Info: [0m[0mNo inputs received for benchmark. Using the inputs provided during model compilation.[0m
+Running inference on GroqChip.
+Running inference using PyTorch model (CPU).
+  0%|          | 0/2210 [00:00<?, ?it/s]  2%|▏         | 38/2210 [00:00<00:05, 378.23it/s]  4%|▍         | 83/2210 [00:00<00:05, 415.21it/s]  6%|▌         | 129/2210 [00:00<00:04, 431.52it/s]  8%|▊         | 175/2210 [00:00<00:04, 439.78it/s] 10%|▉         | 220/2210 [00:00<00:04, 442.76it/s] 12%|█▏        | 265/2210 [00:00<00:04, 444.40it/s] 14%|█▍        | 311/2210 [00:00<00:04, 446.62it/s] 16%|█▌        | 356/2210 [00:00<00:04, 447.64it/s] 18%|█▊        | 402/2210 [00:00<00:04, 449.84it/s] 20%|██        | 448/2210 [00:01<00:03, 451.13it/s] 22%|██▏       | 494/2210 [00:01<00:03, 448.17it/s] 24%|██▍       | 540/2210 [00:01<00:03, 449.56it/s] 26%|██▋       | 585/2210 [00:01<00:03, 449.01it/s] 29%|██▊       | 630/2210 [00:01<00:03, 449.30it/s] 31%|███       | 676/2210 [00:01<00:03, 450.28it/s] 33%|███▎      | 722/2210 [00:01<00:03, 449.73it/s] 35%|███▍      | 768/2210 [00:01<00:03, 450.04it/s] 37%|███▋      | 814/2210 [00:01<00:03, 449.24it/s] 39%|███▉      | 859/2210 [00:01<00:03, 448.49it/s] 41%|████      | 904/2210 [00:02<00:02, 447.23it/s] 43%|████▎     | 949/2210 [00:02<00:02, 447.80it/s] 45%|████▍     | 994/2210 [00:02<00:02, 444.20it/s] 47%|████▋     | 1039/2210 [00:02<00:02, 443.53it/s] 49%|████▉     | 1084/2210 [00:02<00:02, 442.48it/s] 51%|█████     | 1129/2210 [00:02<00:02, 444.21it/s] 53%|█████▎    | 1174/2210 [00:02<00:02, 445.47it/s] 55%|█████▌    | 1220/2210 [00:02<00:02, 447.27it/s] 57%|█████▋    | 1265/2210 [00:02<00:02, 448.05it/s] 59%|█████▉    | 1310/2210 [00:02<00:02, 448.49it/s] 61%|██████▏   | 1355/2210 [00:03<00:01, 448.87it/s] 63%|██████▎   | 1401/2210 [00:03<00:01, 450.60it/s] 65%|██████▌   | 1447/2210 [00:03<00:01, 452.34it/s] 68%|██████▊   | 1493/2210 [00:03<00:01, 453.81it/s] 70%|██████▉   | 1539/2210 [00:03<00:01, 454.54it/s] 72%|███████▏  | 1585/2210 [00:03<00:01, 455.45it/s] 74%|███████▍  | 1631/2210 [00:03<00:01, 453.67it/s] 76%|███████▌  | 1677/2210 [00:03<00:01, 454.08it/s] 78%|███████▊  | 1723/2210 [00:03<00:01, 454.72it/s] 80%|████████  | 1769/2210 [00:03<00:00, 455.36it/s] 82%|████████▏ | 1815/2210 [00:04<00:00, 455.89it/s] 84%|████████▍ | 1861/2210 [00:04<00:00, 456.18it/s] 86%|████████▋ | 1907/2210 [00:04<00:00, 456.08it/s] 88%|████████▊ | 1953/2210 [00:04<00:00, 456.36it/s] 90%|█████████ | 1999/2210 [00:04<00:00, 456.52it/s] 93%|█████████▎| 2045/2210 [00:04<00:00, 456.26it/s] 95%|█████████▍| 2091/2210 [00:04<00:00, 456.32it/s] 97%|█████████▋| 2137/2210 [00:04<00:00, 455.79it/s] 99%|█████████▉| 2183/2210 [00:04<00:00, 456.02it/s]100%|██████████| 2210/2210 [00:04<00:00, 449.68it/s]
++--------+----------+-------------------------+----------------+----------------------+-------------+
+| Source | Accuracy | end-to-end latency (ms) | end-to-end IPS | on-chip latency (ms) | on-chip IPS |
++--------+----------+-------------------------+----------------+----------------------+-------------+
+|  cpu   |  77.47%  |           2.22          |     449.46     |          --          |      --     |
+|  groq  |  77.47%  |           0.06          |    17462.57    |         0.03         |   37576.72  |
++--------+----------+-------------------------+----------------+----------------------+-------------+
+Proof point /home/knathan/groqflow/proof_points/natural_language_processing/bert/bert_tiny.py finished!
