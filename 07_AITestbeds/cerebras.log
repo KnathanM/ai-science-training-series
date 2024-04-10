@@ -1,0 +1,28 @@
+I was able to submit the job to the queue, but it didn't pick up in time for me to finish this assignment. So instead, below is all the output I personally got and I then looked at am2145's github for his results to evaluate the performance differences of different batch sizes.
+(venv_cerebras_pt) (base) [knathan@cer-login-03 bert]$ python run.py CSX --job_labels name=bert_pt \
+> --params configs/bert_large_MSL128_sampleds.yaml \
+> --num_workers_per_csx=1 --mode train \
+> --model_dir $MODEL_DIR --mount_dirs /home/ /software/ \
+> --python_paths /home/$(whoami)/R_2.1.1/modelzoo/ \
+> --compile_dir $(whoami) |& tee mytest.log
+2024-04-10 05:15:05,498 INFO:   Effective batch size is 1024.
+2024-04-10 05:15:05,524 INFO:   Checkpoint autoloading is enabled. Looking for latest checkpoint in "model_dir_bert_large_pytorch" directory with the following naming convention: `checkpoint_(step)(_timestamp)?.mdl`.
+2024-04-10 05:15:05,525 INFO:   No checkpoints were found in "model_dir_bert_large_pytorch".
+2024-04-10 05:15:05,525 INFO:   No checkpoint was provided. Using randomly initialized model parameters.
+2024-04-10 05:15:06,834 INFO:   Saving checkpoint at step 0
+2024-04-10 05:15:37,239 INFO:   Saved checkpoint model_dir_bert_large_pytorch/checkpoint_0.mdl
+2024-04-10 05:15:53,163 INFO:   Compiling the model. This may take a few minutes.
+2024-04-10 05:15:53,165 INFO:   Defaulted to use the job-operator namespace as the usernode config /opt/cerebras/config_v2 only has access to that namespace.
+2024-04-10 05:15:54,548 INFO:   Initiating a new image build job against the cluster server.
+2024-04-10 05:15:54,665 INFO:   Custom worker image build is disabled from server.
+2024-04-10 05:15:54,671 INFO:   Defaulted to use the job-operator namespace as the usernode config /opt/cerebras/config_v2 only has access to that namespace.
+2024-04-10 05:15:55,032 INFO:   Initiating a new compile wsjob against the cluster server.
+2024-04-10 05:15:55,166 INFO:   compile job id: wsjob-uyqw5z28povpprcbvm45hq, remote log path: /n1/wsjob/workdir/job-operator/wsjob-uyqw5z28povpprcbvm45hq
+2024-04-10 05:16:05,214 INFO:   Poll ingress status: Waiting for job running, current job status: Queueing, msg: job is queueing. Job queue status: current job is top of queue but likely blocked by running jobs, 1 execute job(s) running using 1 system(s), 1 compile job(s) running using 67Gi memory. For more information, please run 'csctl get jobs'.
+2024-04-10 05:17:35,234 INFO:   Poll ingress status: Waiting for job running, current job status: Queueing, msg: job is queueing. Job queue status: current job is top of queue but likely blocked by running jobs, 2 execute job(s) running using 2 system(s). For more information, please run 'csctl get jobs'.
+
+  A 512 batch size took 200 seconds
+  A 1024 batch size took 211 seconds
+  A 2048 batch size took 304 seconds
+
+The large batch sizes processed more samples in about the same amount of time, so they had higher performance. Though the gain from 1024 to 2048 was not as bit as from 512 to 1024. 
